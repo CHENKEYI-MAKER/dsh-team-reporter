@@ -19,6 +19,13 @@ usage and cost in one place.
 dsh plugin --profile desktop add dsh-team-reporter
 ```
 
+If that reports `ERR_PNPM_FETCH_404`, the npm package is not published yet — install from the
+repository instead, which needs no registry:
+
+```sh
+dsh plugin --profile desktop add github:CHENKEYI-MAKER/dsh-team-reporter
+```
+
 Restart DSH. A grey dot appears in the bottom-right corner — open it, enter your team server URL and
 the enrollment code your administrator gave you, and click 绑定 (Bind). The dot turns green and
 reporting starts.
