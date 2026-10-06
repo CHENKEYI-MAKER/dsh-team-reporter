@@ -1,0 +1,33 @@
+{
+  "name": "dsh-team-reporter",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "DSH 团队版员工端插件：把本机每一步真实 token 用量上报给团队服务器（幂等、可重放、离线队列落盘）",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./pricing": "./lib/pricing.mjs",
+    "./reporter": "./lib/reporter.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CHENKEYI-MAKER/dsh-team-reporter.git"
+  },
+  "license": "MIT",
+  "author": "CHENKEYI-MAKER",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "usage",
+    "token"
+  ]
+}

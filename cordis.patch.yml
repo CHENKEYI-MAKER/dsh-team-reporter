@@ -1,0 +1,5 @@
+# cordis.patch.yml — DSH 插件挂载声明（与 dsh-whale-widget 同机制）。
+# 安装：dsh plugin --profile desktop add link:<本目录绝对路径>
+- insert:
+    - id: dsh-team-reporter
+      name: dsh-team-reporter
