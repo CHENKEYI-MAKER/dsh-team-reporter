@@ -1,6 +1,28 @@
 # cordis.patch.yml — DSH 插件挂载声明（与 dsh-whale-widget 同机制）。
-# 安装：dsh plugin --profile desktop add dsh-team-reporter（公开仓库）
-# 开发机验证本地改动：dsh plugin --profile desktop add link:<本目录绝对路径>
+#
+# ── 员工机安装（推荐：不用命令行，也不用连 GitHub）─────────────────────────
+#   1) 浏览器打开  https://dsh.chenkeyi.online/dl/  按页面提示下载（别名 latest.tgz 永远是最新版）
+#   2) DSH 侧栏「插件」→「添加插件」→ 粘贴这个文件的**绝对路径** →「安装」
+#      例：C:\Users\你的用户名\Downloads\dsh-team-reporter-0.2.0.tgz
+#   3) 重启 DSH
+#   命令行等价写法（路径必须是绝对路径，相对路径会被 pnpm 拒绝）：
+#      dsh plugin --profile desktop add "C:\Users\你的用户名\Downloads\dsh-team-reporter-0.2.0.tgz"
+#
+# ── 为什么不用下面这些写法（全部实测过）──────────────────────────────────
+#   dsh-team-reporter
+#       没发布到 npm → ERR_PNPM_FETCH_404
+#   github:CHENKEYI-MAKER/dsh-team-reporter
+#       pnpm 解析成 git+ssh://git@github.com/... → 员工机没配密钥，Permission denied (publickey)
+#   https://dsh.chenkeyi.online/dl/dsh-team-reporter-0.2.0.tgz   （直接把下载网址交给 pnpm）
+#       ERR_PNPM_MISSING_TARBALL_INTEGRITY —— pnpm 11 只对 file: 与 codeload.github.com /
+#       bitbucket.org / gitlab.com 这几类 git 托管 tarball 免 integrity 校验，自建域名必然被拒
+#   https://github.com/CHENKEYI-MAKER/dsh-team-reporter.git
+#       能装，但要求员工机能连 github.com（公司网络通常不行）
+#   https://codeload.github.com/CHENKEYI-MAKER/dsh-team-reporter/tar.gz/refs/heads/main
+#       同样能装，同样要求能连 GitHub
+#
+# ── 开发机验证本地改动 ──────────────────────────────────────────────────
+#   dsh plugin --profile desktop add link:<本目录绝对路径>
 - insert:
     - id: dsh-team-reporter
       name: dsh-team-reporter
